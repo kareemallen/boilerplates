@@ -1,0 +1,30 @@
+{
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers-extra/features/act:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"version": "latest",
+			"moby": "false"
+		},
+		"ghcr.io/rio/features/k3d:1": {
+			"version": "latest"
+		},
+		"ghcr.io/rio/features/k9s:1": {}
+	},
+	"mounts": [
+        "source=profile,target=/root,type=volume",
+        "target=/root/.vscode-server,type=volume"
+    ],
+	"remoteUser": "vscode",
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}
